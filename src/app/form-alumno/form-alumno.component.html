@@ -1,0 +1,121 @@
+<div class="row">
+    <div class="col-md-3 mt-5">
+      <div class="card">
+        <div class="card-body">
+          <h4>Agregar Alumno</h4>
+          <form [formGroup]="formulario"  novalidate>
+            <div class="mb-3">
+                <label for="exampleInputUser" class="form-label" >Rut Alumno</label>
+                <input type="email" class="form-control" id="exampleInputusuario" formControlName="rut" aria-describedby="emailHelp">
+                <div id="usuariolHelp" class="form-text">Ingrese  Rut</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label" >Nombre Alumno</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" formControlName="nombre" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">Ingrese nombre </div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputTelefono" class="form-label" >Apellido Alumno </label>
+              <input type="text" class="form-control" formControlName="apellido" id="exampleInputPassword1">
+              <div id="telefonoHelp" class="form-text">Ingrese apellido</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputTelefono" class="form-label" >Curso Alumno</label>
+                <input type="text" class="form-control" formControlName="curso" id="exampleInputPassword1">
+                <div id="telefonoHelp" class="form-text">Ingrese el curso</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputTelefono" class="form-label" >Edad Alumno</label>
+              <input type="text" class="form-control" formControlName="edad" id="exampleInputPassword1">
+              <div id="telefonoHelp" class="form-text">Ingrese edad</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputTelefono" class="form-label" >Promedio Alumno</label>
+              <input type="text" class="form-control" formControlName="promedio" id="exampleInputPassword1">
+              <div id="telefonoHelp" class="form-text">Ingrese el promedio</div>
+            </div>
+
+            <button  class="btn btn-outline-primary" (click)="agregar()">Agregar</button>
+          </form>     
+        </div>
+      </div>
+    </div>
+
+  <div class="col-md-6 mt-5">
+    <div class="card">
+      <div class="card-body">
+        <h4>Listado de Alumnos</h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Rut</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Curso</th>
+              <th scope="col">Edad</th>
+              <th scope="col">Promedio</th>
+              <th scope="col">Editar</th>
+              <th scope="col">Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let elemento of listaAlumnos">
+              <th scope="row">{{elemento.rut}}</th>
+              <td>{{elemento.nombre}}</td>
+              <td>{{elemento.apellido}}</td>
+              <td>{{elemento.curso}}</td>
+              <td>{{elemento.edad}}</td>
+              <td>{{elemento.promedio}}</td>
+              <td><button  class="btn btn-sm btn-outline-warning" (click)="editar(elemento.rut)" >Editar</button></td>
+              <td><button  class="btn btn-sm btn-outline-danger" (click)="eliminar(elemento.rut)">Eliminar</button></td>
+            </tr>
+
+          </tbody>
+        </table>
+        <button  class="btn btn-outline-primary" (click)="filtrar(0)">filtrar</button>
+      </div>
+    </div>
+  </div>
+
+    <div class="col-md-3 mt-5">
+      <div class="card">
+        <div class="card-body">
+          <h4>Formulario Edicion</h4>
+          <form [formGroup]="formularioEdicion"  novalidate>
+            <div class="mb-3">
+              <label for="exampleInputUser" class="form-label" >Rut Alumno</label>
+              <input type="email" class="form-control form-rut" id="rut" formControlName="rutinput" aria-describedby="emailHelp">
+              <div id="usuariolHelp" class="form-text">Ingrese  Rut</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label" >Nombre Alumno</label>
+              <input type="email" class="form-control" id="nombre" formControlName="nombre" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">Ingrese nombre </div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputTelefono" class="form-label" >Apellido Alumno </label>
+              <input type="text" class="form-control" formControlName="apellido" id="apellido">
+              <div id="telefonoHelp" class="form-text">Ingrese apellido</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputTelefono" class="form-label" >Curso Alumno</label>
+              <input type="text" class="form-control" formControlName="curso" id="curso">
+              <div id="telefonoHelp" class="form-text">Ingrese el curso</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputTelefono" class="form-label" >Edad Alumno</label>
+              <input type="text" class="form-control" formControlName="edad" id="edad">
+              <div id="telefonoHelp" class="form-text">Ingrese edad</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputTelefono" class="form-label" >Promedio Alumno</label>
+              <input type="text" class="form-control" formControlName="promedio" id="promedio">
+              <div id="telefonoHelp" class="form-text">Ingrese el promedio</div>
+            </div>
+            <td><button  class="btn btn-outline-primary" (click)="confirmarEdicion()">Confirmar Edicion</button></td>
+
+          </form>
+        </div>
+      </div>
+  </div>
+</div>

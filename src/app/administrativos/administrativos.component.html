@@ -1,0 +1,114 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-5">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Rut</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Edad</th>
+                    <th scope="col">Cargo</th>
+                    <th scope="col">Sueldo</th>
+                    <th cope="col">Editar</th>
+                    <th cope="col">Eliminar</th>
+                </tr>
+                </thead>
+                <tbody >
+                <tr *ngFor="let administrativo of listaAdministrativos">
+                    <td>{{administrativo.rut}}</td>
+                    <td>{{administrativo.nombre}}</td>
+                    <td>{{administrativo.apellido}}</td>
+                    <td>{{administrativo.edad}}</td>
+                    <td>{{administrativo.cargo}}</td>
+                    <td>{{administrativo.sueldo}}</td>
+                    <td><button (click)="editar(administrativo.rut,administrativo.nombre,administrativo.apellido,administrativo.edad,administrativo.cargo,administrativo.sueldo)" class="btn btn-sm btn-outline-warning">Editar</button></td>
+                    <td><button (click)="eliminar(administrativo.rut)" class="btn btn-sm btn-outline-danger">Eliminar</button></td>
+                </tr>
+                </tbody>
+            </table>
+            <div style="color: red;"> 
+                {{error}}
+            </div>
+            <button class="btn btn-outline-primary btnAgregar" (click)="habilitar()">añadir Administrativo</button>
+        </div>
+
+        <div class="col-md-3 mt-5">
+            <form [formGroup]="formulario" class="form" (ngSubmit)="agregar()" style="display: none;">
+                <h4>Agregar Administrativo</h4>
+                <div class="mb-3">
+                    <label for="rutlab" class="form-label">Rut</label>
+                    <input type="text" class="form-control" id="rut" aria-describedby="rutHelp"  formControlName="rut">
+                
+                </div>
+
+                <div class="mb-3">
+                    <label for="nombrelab" class="form-label" >Nombre</label>
+                    <input type="text" class="form-control" id="Nombre" aria-describedby="nombreHelp" formControlName="nombre">
+                
+                </div>
+                <div class="mb-3">
+                    <label for="apellidolab" class="form-label" >Apellido</label>
+                    <input type="text" class="form-control" id="apellido" aria-describedby="apellidoHelp" formControlName="apellido">
+                    
+                </div>
+                <div class="mb-3">
+                    <label for="edadlab" class="form-label" >Edad</label>
+                    <input type="number" class="form-control" id="edad" aria-describedby="edadHelp" formControlName="edad">
+                
+                </div>
+                <div class="mb-3">
+                    <label for="cargolab" class="form-label" >Cargo</label>
+                    <input type="text" class="form-control" id="cargo" aria-describedby="cargoHelp" formControlName="cargo">
+                    
+                </div>
+                <div class="mb-3">
+                    <label for="sueldolab" class="form-label" >Sueldo</label>
+                    <input type="number" class="form-control" id="sueldo" aria-describedby="sueldoHelp" formControlName="sueldo">
+                
+                </div>
+
+            <button type="submit" class="btn btn-outline-primary">Agregar</button>
+        </form>
+        </div>
+
+        <div class="col-md-3 mt-5">
+            <form [formGroup]="formularioActualizar" class="formActualizar" (ngSubmit)="actualizar()" style="display: none;">
+                <h4>Agregar Administrativo</h4>
+                <div class="mb-3">
+                    <label for="rutlab" class="form-label">Rut</label>
+                    <input type="text" class="form-control" id="rutA" aria-describedby="rutHelp"  formControlName="rut">
+                </div>
+
+                <div class="mb-3">
+                    <label for="nombrelab" class="form-label" >Nombre</label>
+                    <input type="text" class="form-control" id="nombreA" aria-describedby="nombreHelp" formControlName="nombre">
+                
+                </div>
+                <div class="mb-3">
+                    <label for="apellidolab" class="form-label" >Apellido</label>
+                    <input type="text" class="form-control" id="apellidoA" aria-describedby="apellidoHelp" formControlName="apellido">
+                    
+                </div>
+                <div class="mb-3">
+                    <label for="edadlab" class="form-label" >Edad</label>
+                    <input type="number" class="form-control" id="edadA" aria-describedby="edadHelp" formControlName="edad">
+                
+                </div>
+                <div class="mb-3">
+                    <label for="cargolab" class="form-label" >Cargo</label>
+                    <input type="text" class="form-control" id="cargoA" aria-describedby="cargoHelp" formControlName="cargo">
+                    
+                </div>
+                <div class="mb-3">
+                    <label for="sueldolab" class="form-label" >Sueldo</label>
+                    <input type="number" class="form-control" id="sueldoA" aria-describedby="sueldoHelp" formControlName="sueldo">
+                
+                </div>
+
+                <button type="submit" class="btn btn-outline-primary">Actualizar</button>
+            </form>
+        </div>
+
+    </div>
+</div>

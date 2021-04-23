@@ -1,0 +1,106 @@
+
+<div class="row">
+    <div class="col-md-3 mt-5">
+        <h4>Agregar rofesores</h4>
+        <form [formGroup]="formulario" (ngSubmit)="agregar()"  style="width: 50%; margin-left: 10%;">
+            <div class="form-group">
+              <label for="Rut">Rut</label>
+              <input type="number" class="form-control" formControlName="rut" id="rut">
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" formControlName="nombre" id="nombre">
+            </div>
+            <div class="form-group">
+                <label for="apellido">Apellido</label>
+                <input type="text" class="form-control" formControlName="apellido" id="apellido">
+            </div>
+            <div class="form-group">
+                <label for="edad">Edad</label>
+                <input type="number" class="form-control" formControlName="edad" id="edad">
+            </div>
+            <div class="form-group">
+                <label for="especialidad">Especialidad</label>
+                <input type="text" class="form-control" formControlName="especialidad" id="especialidad">
+            </div>
+            <div class="form-group">
+                <label for="sueldo">Sueldo</label>
+                <input type="number" class="form-control" formControlName="sueldo" id="sueldo">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-outline-primary">Agregar</button>
+        </form>
+        <div class="alert alert-danger" role="alert" style="display: none;" id="alertError">
+            No puede haber campos vacios ni rut repetidos
+        </div>
+    </div>
+    <div class="col-md-6 table-responsive mt-5">
+        <h4>Profesores</h4>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Rut</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Especialidad</th>
+                <th scope="col">Sueldo</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Eliminar</th>
+            </tr>
+            </thead>
+            <tbody *ngFor="let lista of profesores">
+            <tr>
+                <th scope="row">{{lista.rut}}</th>
+                <td>{{lista.nombre}}</td>
+                <td>{{lista.apellido}}</td>
+                <td>{{lista.edad}}</td>
+                <td>{{lista.especialidad}}</td>
+                <td>{{lista.sueldo}}</td>
+                <td (click)="editar(lista.rut,lista.nombre,lista.apellido,lista.edad,lista.especialidad,lista.sueldo)"><button class="btn btn-sm btn-outline-warning">Editar</button></td>
+                <td (click)="eliminar(lista.rut)"><button class="btn btn-sm btn-outline-danger">Eliminar</button></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-3 mt-5">
+        <div class="divActualizar" style="display: none;">
+            <h4>Actualizar productos</h4>
+            <form [formGroup]="formularioActualizar" (ngSubmit)="actualizar()" style="width: 50%; margin-left: 10%;">
+                <div class="form-group">
+                    <label for="Rut">Rut</label>
+                    <input type="number" class="form-control" formControlName="rut" id="rutA" readonly>
+                  </div>
+                  <div class="form-group">
+                      <label for="nombre">Nombre</label>
+                      <input type="text" class="form-control" formControlName="nombre" id="nombreA">
+                  </div>
+                  <div class="form-group">
+                      <label for="apellido">Apellido</label>
+                      <input type="text" class="form-control" formControlName="apellido" id="apellidoA">
+                  </div>
+                  <div class="form-group">
+                      <label for="edad">Edad</label>
+                      <input type="number" class="form-control" formControlName="edad" id="edadA">
+                  </div>
+                  <div class="form-group">
+                      <label for="especialidad">Especialidad</label>
+                      <input type="text" class="form-control" formControlName="especialidad" id="especialidadA">
+                  </div>
+                  <div class="form-group">
+                      <label for="sueldo">Sueldo</label>
+                      <input type="number" class="form-control" formControlName="sueldo" id="sueldoA">
+                  </div>
+                  <br>
+                  <button type="submit" class="btn btn-outline-primary">Aceptar</button>
+            </form>
+            <br>
+            <div class="alert alert-danger" role="alert" style="display: none;" id="alertErrorEditar">
+                No puede haber campos vacios ni repetir el mismo Rut
+            </div>
+        </div>
+    </div>
+</div>
+
+
+   
